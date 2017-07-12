@@ -5,8 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Front page 1</title>
+    <!--MDL  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.pink-blue.min.css" />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 <body>
-    
+    <!-- Simple header with scrollable tabs. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Insights by Warwickshire County Council</span>
+        </div>
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+        <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Housing and Demography</a>
+        <a href="#scroll-tab-2" class="mdl-layout__tab">Community Safety</a>
+        <a href="#scroll-tab-3" class="mdl-layout__tab">Health and Wellbeing</a>
+        <a href="#scroll-tab-4" class="mdl-layout__tab">Economy and Employment</a>
+        <a href="#scroll-tab-5" class="mdl-layout__tab">Population</a>
+        <a href="#scroll-tab-6" class="mdl-layout__tab">Quality of Life</a>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Title</span>
+    </div>
+    <main class="mdl-layout__content">
+        <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+        <div class="page-content">
+            <!-- Your content goes here -->
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Welcome</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Mauris sagittis pellentesque lacus eleifend lacinia...
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Get Started
+                    </a>
+                </div>
+                <div class="mdl-card__menu">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                    <i class="material-icons">share</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="scroll-tab-2">
+        <div class="page-content">
+            <!-- Your content goes here -->
+            
+            
+        
+        </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="scroll-tab-3">
+        <div class="page-content"><!-- Your content goes here --></div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="scroll-tab-4">
+        <div class="page-content"><!-- Your content goes here --></div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="scroll-tab-5">
+        <div class="page-content"><!-- Your content goes here --></div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="scroll-tab-6">
+        <div class="page-content"><!-- Your content goes here --></div>
+        </section>
+    </main>
+    </div>
 </body>
 </html>
