@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>report-style-2</title>
+    <link rel="stylesheet" href="../css/master-style.css">
+    <link rel="stylesheet" href="../css/report-style-2.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="#link-1">Link to section in report 1</a>
+        <a href="#link-2">The sound of the police.</a>
+        <a href="#link-3">Link to section in report 3</a>
+        <a href="#link-4">Link to section in report 4</a>
+        <a href="#link-5">Link to section in report 5</a>
+        <a href="#">Back to themes</a>
+    </nav>
+    <div class="container">
+        <h1>Crime and community</h1>
+        <p id="blurb">
+            This report on the internet, shows a possible style of presenting a report on the internet,
+            the rest of this section will be total nonsense to showing spacing etc. Internet.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, lorem accusata disputationi eos id. Nam propriae persequeris at. In est quod cetero, in sed omnes erroribus omittantur, pri tantas possim id. Te sale natum elitr eam, sit ex graece omnium civibus.
+        </p>
+        <p>
+            Sit ad appareat molestiae incorrupte, in viris tacimates democritum eum. Qui efficiantur definitiones eu. Ut vis duis alterum corrumpit, affert pericula percipitur mei eu. Te duo corpora albucius.
+        </p>
+        <p>
+            Praesent inciderint disputationi et vix. Choro perfecto maluisset pri at, te praesent dignissim mea. Alii audiam ad usu. Primis explicari rationibus ius ex. Ne homero democritum vim, ut blandit molestie vivendum usu.
+        </p>
+        <div id="barchart">
+            <script>
+            //width and height
+            var w = 600;
+            var h = 300;
+
+            //create dataset
+            var dataset = [];
+
+            for (var i = 0; i < 20; i++) {
+                var datum = Math.floor(Math.random() * 25);
+                dataset.push(datum);
+                console.log(datum);
+            }
+
+            //create scales
+            var xScale = d3.scaleBand()
+                            .domain(d3.range(dataset.length))
+                            .range([0, w])
+                            .paddingInner(0.05);
+
+            var yScale = d3.scaleLinear()
+                            .domain([0, d3.max(dataset)])
+                            .range([0, h]);
+
+            //create svg
+            var svg = d3.select('#barchart')
+                        .append('svg')
+                        .attr('width', w)
+                        .attr('height', h);
+
+            //create bars
+            svg.selectAll('rect')
+                .data(dataset)
+                .enter()
+                .append('rect')
+                .attr('x', function(d, i) {
+                    return xScale(i);
+                })
+                .attr('y', function(d) {
+                    return h - yScale(d);
+                }) 
+                .attr('width', xScale.bandwidth())
+                .attr('height', function(d) {
+                    return yScale(d);
+                })
+                .attr('fill', function(d) {
+                    return 'rgb(' + (140 + (d *5)) + ',105,180)';
+                });
+            
+            //create labels
+            svg.selectAll('text')
+                .data(dataset)
+                .enter()
+                .append('text')
+                .text(function(d) {
+                    return d;
+                })
+                .attr('text-anchor', 'middle')
+                .attr('x', function(d, i) {
+                    return xScale(i) + xScale.bandwidth() / 2;
+                })
+                .attr('y', function(d) {
+                    return h - yScale(d) + 14;
+                })
+                .attr('font-family', 'sans-serif')
+                .attr('font-size', '11px')
+                .attr('fill', 'white');
+
+            //create event listener
+            d3.select('p')
+                .on('click', function() {
+                    //create a debug message to show new load.
+                    console.log('Click! New dataset')
+
+                    //clear dataset
+                    dataset = [];
+
+                    for (var i = 0; i < 20; i++) {
+                        var datum = Math.floor(Math.random() * 25);
+                        dataset.push(datum);
+                        console.log(datum);
+                    }
+
+                    //rework bars
+                    svg.selectAll('rect')
+                        .data(dataset)
+                        .transition()
+                        .delay(function(d, i) {
+                            return i * 100;
+                        })
+                        .duration(500)
+                        .ease(d3.easeCircle)
+                        .attr('y', function(d) {
+                            return h - yScale(d);
+                        })
+                        .attr('height', function(d) {
+                            return yScale(d);
+                        })
+                        .attr('fill', function(d) {
+                            return 'rgb(' + (140 + (d * 5)) + ',25,80)';
+                        });
+                    
+                    //creat labels
+                    svg.selectAll('text')
+                        .data(dataset)
+                        .transition()
+                        .delay(function(d, i) {
+                            return i * 100;
+                        })
+                        .duration(500)
+                        .text(function(d) {
+                            return d;
+                        })
+                        .ease(d3.easeCircle)
+                        .attr('x', function(d, i) {
+                            return xScale(i) + xScale.bandwidth() / 2;
+                        })
+                        .attr('y', function(d) {
+                            return h - yScale(d) + 14;
+                        });
+                });
+            </script>
+            <p>Source: Random Meaningless Data but you can trust it.</p>
+        </div>
+        <p>
+            Atqui efficiendi id ius, vis contentiones conclusionemque et. Possim feugait aliquando cu sea, impetus cotidieque concludaturque at quo. At duo vocibus consulatu, pro ne doctus sensibus, vix ne denique maiestatis. Idque aeterno fastidii eum no, his zril dicant utroque et. Te nec facilisi percipitur, no volumus definiebas pro.
+        </p>
+        <h2 id="link-2">The sound of the police.</h2>
+        <p>
+            Vim dicunt option consectetuer cu, ne fastidii mandamus per. Eum ut nibh mucius fabulas, pro novum comprehensam ex, eum diam cotidieque conclusionemque et. Putent postulant at vix, ex mea choro prodesset definitiones, dicunt dignissim assentior eu sed. Eripuit argumentum necessitatibus vel ut. Mediocrem consulatu cu vim, ea sed possit impetus nonumes, sed cu dictas intellegebat.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, lorem accusata disputationi eos id. Nam propriae persequeris at. In est quod cetero, in sed omnes erroribus omittantur, pri tantas possim id. Te sale natum elitr eam, sit ex graece omnium civibus.
+        </p>
+        <p>
+            Sit ad appareat molestiae incorrupte, in viris tacimates democritum eum. Qui efficiantur definitiones eu. Ut vis duis alterum corrumpit, affert pericula percipitur mei eu. Te duo corpora albucius.
+        </p>
+        <div id="fixed-infogfx">
+            <h2>Hey this is interesting...</h2>
+            <p>
+                <span style="font-size: 1.1rem">In a study</span>
+                of <span style="font-size: 2rem">200,000</span><br/>
+                ostriches over a period of <br/>
+                <span style="font-size: 2rem"> 80 years</span><br/>
+                no one reported a single case where an ostrict buried its head in the sand.
+                <span><small><a href="#">Source: probably not true</a></small></span>
+            </p>
+        </div>
+        <p>
+            Praesent inciderint disputationi et vix. Choro perfecto maluisset pri at, te praesent dignissim mea. Alii audiam ad usu. Primis explicari rationibus ius ex. Ne homero democritum vim, ut blandit molestie vivendum usu.
+        </p>
+        <p id="link-1">
+            Atqui efficiendi id ius, vis contentiones conclusionemque et. Possim feugait aliquando cu sea, impetus cotidieque concludaturque at quo. At duo vocibus consulatu, pro ne doctus sensibus, vix ne denique maiestatis. Idque aeterno fastidii eum no, his zril dicant utroque et. Te nec facilisi percipitur, no volumus definiebas pro.
+        </p>
+        <p>
+            Vim dicunt option consectetuer cu, ne fastidii mandamus per. Eum ut nibh mucius fabulas, pro novum comprehensam ex, eum diam cotidieque conclusionemque et. Putent postulant at vix, ex mea choro prodesset definitiones, dicunt dignissim assentior eu sed. Eripuit argumentum necessitatibus vel ut. Mediocrem consulatu cu vim, ea sed possit impetus nonumes, sed cu dictas intellegebat.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, lorem accusata disputationi eos id. Nam propriae persequeris at. In est quod cetero, in sed omnes erroribus omittantur, pri tantas possim id. Te sale natum elitr eam, sit ex graece omnium civibus.
+        </p>
+        <p>
+            Sit ad appareat molestiae incorrupte, in viris tacimates democritum eum. Qui efficiantur definitiones eu. Ut vis duis alterum corrumpit, affert pericula percipitur mei eu. Te duo corpora albucius.
+        </p>
+        <p>
+            Praesent inciderint disputationi et vix. Choro perfecto maluisset pri at, te praesent dignissim mea. Alii audiam ad usu. Primis explicari rationibus ius ex. Ne homero democritum vim, ut blandit molestie vivendum usu.
+        </p>
+        <p>
+            Atqui efficiendi id ius, vis contentiones conclusionemque et. Possim feugait aliquando cu sea, impetus cotidieque concludaturque at quo. At duo vocibus consulatu, pro ne doctus sensibus, vix ne denique maiestatis. Idque aeterno fastidii eum no, his zril dicant utroque et. Te nec facilisi percipitur, no volumus definiebas pro.
+        </p>
+        <p>
+            Vim dicunt option consectetuer cu, ne fastidii mandamus per. Eum ut nibh mucius fabulas, pro novum comprehensam ex, eum diam cotidieque conclusionemque et. Putent postulant at vix, ex mea choro prodesset definitiones, dicunt dignissim assentior eu sed. Eripuit argumentum necessitatibus vel ut. Mediocrem consulatu cu vim, ea sed possit impetus nonumes, sed cu dictas intellegebat.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, lorem accusata disputationi eos id. Nam propriae persequeris at. In est quod cetero, in sed omnes erroribus omittantur, pri tantas possim id. Te sale natum elitr eam, sit ex graece omnium civibus.
+        </p>
+        <p>
+            Sit ad appareat molestiae incorrupte, in viris tacimates democritum eum. Qui efficiantur definitiones eu. Ut vis duis alterum corrumpit, affert pericula percipitur mei eu. Te duo corpora albucius.
+        </p>
+        <p>
+            Praesent inciderint disputationi et vix. Choro perfecto maluisset pri at, te praesent dignissim mea. Alii audiam ad usu. Primis explicari rationibus ius ex. Ne homero democritum vim, ut blandit molestie vivendum usu.
+        </p>
+        <p>
+            Atqui efficiendi id ius, vis contentiones conclusionemque et. Possim feugait aliquando cu sea, impetus cotidieque concludaturque at quo. At duo vocibus consulatu, pro ne doctus sensibus, vix ne denique maiestatis. Idque aeterno fastidii eum no, his zril dicant utroque et. Te nec facilisi percipitur, no volumus definiebas pro.
+        </p>
+        <p>
+            Vim dicunt option consectetuer cu, ne fastidii mandamus per. Eum ut nibh mucius fabulas, pro novum comprehensam ex, eum diam cotidieque conclusionemque et. Putent postulant at vix, ex mea choro prodesset definitiones, dicunt dignissim assentior eu sed. Eripuit argumentum necessitatibus vel ut. Mediocrem consulatu cu vim, ea sed possit impetus nonumes, sed cu dictas intellegebat.
+        </p>
+    </div>
+</body>
+</html>

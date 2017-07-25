@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>report-style-3</title>
+    <link rel="stylesheet" href="../css/master-style.css">
+    <link rel="stylesheet" href="../css/report-style-3.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <header id="navbar">
+        <nav>
+            <a href="#">Links to other areas 1</a>
+            <a href="#">Links to other areas 2</a>
+            <a href="#">Links to other areas 3</a>
+            <a href="#">Links to other areas 4</a>
+            <a href="#">Links to other areas 5</a>
+        </nav>
+    </header>
+    <div id="content-nav">
+        <section>
+            <nav>
+                <a href="#">link to section - 1</a>
+                <a href="#">link to section - 2</a>
+                <a href="#">link to section - 3</a>
+                <a href="#">link to section - 4</a>
+                <a href="#">link to section - 5</a>
+            </nav>
+        </section>
+    </div>
+    <div class="container">
+        <h1>Health and wellbeing</h1>
+        <p>
+            Lorem ipsum dolor sit amet, lorem accusata disputationi eos id. Nam propriae persequeris at. In est quod cetero, in sed omnes erroribus omittantur, pri tantas possim id. Te sale natum elitr eam, sit ex graece omnium civibus.
+        </p>
+        <p>
+            Sit ad appareat molestiae incorrupte, in viris tacimates democritum eum. Qui efficiantur definitiones eu. Ut vis duis alterum corrumpit, affert pericula percipitur mei eu. Te duo corpora albucius.
+        </p>
+        <p>
+            Praesent inciderint disputationi et vix. Choro perfecto maluisset pri at, te praesent dignissim mea. Alii audiam ad usu. Primis explicari rationibus ius ex. Ne homero democritum vim, ut blandit molestie vivendum usu.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, lorem accusata disputationi eos id. Nam propriae persequeris at. In est quod cetero, in sed omnes erroribus omittantur, pri tantas possim id. Te sale natum elitr eam, sit ex graece omnium civibus.
+        </p>
+        <div id="barchart">
+            <script>
+            //width and height
+            var w = 800;
+            var h = 500;
+
+            //create dataset
+            var dataset = [];
+
+            for (var i = 0; i < 20; i++) {
+                var datum = Math.floor(Math.random() * 25);
+                dataset.push(datum);
+                console.log(datum);
+            }
+
+            //create scales
+            var xScale = d3.scaleBand()
+                            .domain(d3.range(dataset.length))
+                            .range([0, w])
+                            .paddingInner(0.05);
+
+            var yScale = d3.scaleLinear()
+                            .domain([0, d3.max(dataset)])
+                            .range([0, h]);
+
+            //create svg
+            var svg = d3.select('#barchart')
+                        .append('svg')
+                        .attr('width', w)
+                        .attr('height', h);
+
+            //create bars
+            svg.selectAll('rect')
+                .data(dataset)
+                .enter()
+                .append('rect')
+                .attr('x', function(d, i) {
+                    return xScale(i);
+                })
+                .attr('y', function(d) {
+                    return h - yScale(d);
+                }) 
+                .attr('width', xScale.bandwidth())
+                .attr('height', function(d) {
+                    return yScale(d);
+                })
+                .attr('fill', function(d) {
+                    return 'rgb(' + (140 + (d *5)) + ',145, 10)';
+                });
+            
+            //create labels
+            svg.selectAll('text')
+                .data(dataset)
+                .enter()
+                .append('text')
+                .text(function(d) {
+                    return d;
+                })
+                .attr('text-anchor', 'middle')
+                .attr('x', function(d, i) {
+                    return xScale(i) + xScale.bandwidth() / 2;
+                })
+                .attr('y', function(d) {
+                    return h - yScale(d) + 14;
+                })
+                .attr('font-family', 'sans-serif')
+                .attr('font-size', '11px')
+                .attr('fill', 'white');
+
+            //create event listener
+            d3.select('p')
+                .on('click', function() {
+                    //create a debug message to show new load.
+                    console.log('Click! New dataset')
+
+                    //clear dataset
+                    dataset = [];
+
+                    for (var i = 0; i < 20; i++) {
+                        var datum = Math.floor(Math.random() * 25);
+                        dataset.push(datum);
+                        console.log(datum);
+                    }
+
+                    //rework bars
+                    svg.selectAll('rect')
+                        .data(dataset)
+                        .transition()
+                        .delay(function(d, i) {
+                            return i * 100;
+                        })
+                        .duration(500)
+                        .ease(d3.easeCircle)
+                        .attr('y', function(d) {
+                            return h - yScale(d);
+                        })
+                        .attr('height', function(d) {
+                            return yScale(d);
+                        })
+                        .attr('fill', function(d) {
+                            return 'rgb(' + (140 + (d * 5)) + ',75,30)';
+                        });
+                    
+                    //creat labels
+                    svg.selectAll('text')
+                        .data(dataset)
+                        .transition()
+                        .delay(function(d, i) {
+                            return i * 100;
+                        })
+                        .duration(500)
+                        .text(function(d) {
+                            return d;
+                        })
+                        .ease(d3.easeCircle)
+                        .attr('x', function(d, i) {
+                            return xScale(i) + xScale.bandwidth() / 2;
+                        })
+                        .attr('y', function(d) {
+                            return h - yScale(d) + 14;
+                        });
+                });
+            </script>
+            <p>Source: Random Meaningless Data but you can trust it.</p>
+        </div>
+        <p>
+            Sit ad appareat molestiae incorrupte, in viris tacimates democritum eum. Qui efficiantur definitiones eu. Ut vis duis alterum corrumpit, affert pericula percipitur mei eu. Te duo corpora albucius.
+        </p>
+        <p>
+            Praesent inciderint disputationi et vix. Choro perfecto maluisset pri at, te praesent dignissim mea. Alii audiam ad usu. Primis explicari rationibus ius ex. Ne homero democritum vim, ut blandit molestie vivendum usu.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, lorem accusata disputationi eos id. Nam propriae persequeris at. In est quod cetero, in sed omnes erroribus omittantur, pri tantas possim id. Te sale natum elitr eam, sit ex graece omnium civibus.
+        </p>
+        <p>
+            Sit ad appareat molestiae incorrupte, in viris tacimates democritum eum. Qui efficiantur definitiones eu. Ut vis duis alterum corrumpit, affert pericula percipitur mei eu. Te duo corpora albucius.
+        </p>
+        <p>
+            Praesent inciderint disputationi et vix. Choro perfecto maluisset pri at, te praesent dignissim mea. Alii audiam ad usu. Primis explicari rationibus ius ex. Ne homero democritum vim, ut blandit molestie vivendum usu.
+        </p>
+    </div>
+    <div id="fixed-infogfx">
+        <p>On average, 12 people leave hospital with the wrong baby everyday.</p>
+        <a href="#"><small>Source: Probably not true</small></a>
+    </div>
+
+    
+    <!-- <img src="../images/bidford-tourism-amended-for-web.jpg" alt=""> -->
+</body>
+</html>

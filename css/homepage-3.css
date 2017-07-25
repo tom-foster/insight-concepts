@@ -1,0 +1,87 @@
+.material-icons {
+    font-size: 80px;
+    color: var(--grey);
+}
+
+div#top-half {
+    height: 15vh;
+    text-align: left;
+    margin: auto;
+    padding: 0;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    background-color: var(--new-header-nav-background);
+}
+
+header {
+    color: var(--grey);
+}
+
+header h1 {
+    font-size: 2.1rem;
+}
+
+div#top-half img {
+    display: flex;
+    min-width: 100px;
+    align-self: flex-end;
+    flex-basis: auto;
+    opacity: 0.5;
+}
+
+#middle {
+    height: 50vh;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    margin: auto;
+    padding: 0;
+    background-color: var(--body-background);
+    color: var(--grey);
+}
+
+div#row {
+    display: flex;
+    flex-shrink: 5;
+    flex-grow: 1;
+    align-self: center;
+}
+
+div.holder {
+    display: block;
+    text-align: center;
+    flex-grow: 1;
+}
+
+div.holder span {
+    display: block;
+}
+
+div#bottom-half {
+    height: 35vh;
+    margin: auto;
+    text-align: center; 
+    padding: 0;
+    background-color: var(--new-body-background);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+div#bottom-half div#bottom-half-left,
+div#bottom-half div#bottom-half-right {
+    flex-grow: 0.5;
+    align-self: center;
+}
+
+div#bottom-half a {
+    text-decoration: none;
+    color: var(--grey);
+}
+
+.mock-button {
+    margin: auto;
+    max-width: 100px;
+    background-color: var(--green);
+}

@@ -1,0 +1,143 @@
+body{
+	margin: 0;
+	padding: 0;
+	line-height: 1.5em;
+	font-size: 1em;
+	font-family: "Roboto", Helvetica, sans-serif;
+}
+
+h1 {
+	/*font-size: 4.5em;*/
+	font-size: 112px;
+	font-weight: 300;
+	line-height: 1;
+	letter-spacing: -.04em;
+}
+
+.container {
+	padding: 1em;
+}
+
+.spacer {
+	padding: 20px;
+}
+
+.blurb {
+	font-weight: 700;
+}
+
+.emphasised-bullet {
+	font-weight: 500;
+}
+
+p {
+	font-size: 1.2em;
+	line-height: 1.8em;
+}
+
+li {
+	font-size: 1.1em;
+	line-height: 1.8em;
+}
+
+footer p {
+	padding: 1em;
+}
+
+.alternate-text {
+	background-color: #F2F0F0;
+}
+
+/*.contents-box {
+	background-color: #04F78A;
+}
+
+nav ul {
+	color: white;
+}
+
+nav ul li a {
+	color: white;
+}*/
+
+.demo-list-three {
+	max-width: 800px;
+}
+
+.bullet-list {
+	border-left: 10px solid var(--green);
+}
+
+.customer-vision-1 {
+	/*background-color: #fce4ec;*/
+	box-sizing: border-box;
+	padding-left: 2px;
+	/*color: white;*/
+}
+
+.customer-vision-1 span {
+	padding-right: 22px;
+	/*background-color: #e91e63;*/
+	/*box-sizing: border-box;*/
+	padding-top: 5px;
+	/*color: white;*/
+	padding-left: 12px;
+	margin-left: -1px;
+	padding-bottom: 5px;
+	margin-left: 5%;
+	border-bottom: 1px solid var(--pink);
+	border-right: 1px solid var(--pink);
+	/*border-radius: 6%;*/
+	box-shadow: 0.1em 0.1em #fce4ec;
+	transition: all 0.2s ease-in-out;
+}
+
+.customer-vision-1 span:hover{
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);s
+}
+
+
+.customer-vision-2 {
+	/*background-color: #e8eaf6;*/
+	box-sizing: border-box;
+	padding-left: 2px;
+}
+
+.customer-vision-2 span {
+	padding-right: 22px;
+	/*background-color: #3f51b5;*/
+	/*box-sizing: border-box;*/
+	padding-top: 5px;
+	/*color: white;*/
+	padding-left: 12px;
+	margin-left: -1px;
+	padding-bottom: 5px;
+	margin-left: 5%;
+	border-bottom: 1px solid var(--amber);
+	border-left: 1px solid var(--amber);
+	/*border-radius: 6%;*/
+	box-shadow: -0.1em 0.1em #e8eaf6;
+	transition: all 0.2s ease-in-out;
+}
+
+.customer-vision-2 span:hover{
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.stepped {
+	padding-left: 13%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+@media screen and (min-width: 600px) {
+	.container {
+		margin: auto;
+		max-width: 800px;
+	}
+
+	footer {
+	margin: auto;
+	border-top: thin solid black;
+	}
+}

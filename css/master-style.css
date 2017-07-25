@@ -1,0 +1,47 @@
+/*Master defaults  */
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto:300,400,700');
+
+:root {
+    --blue: rgb(70,123,191);
+    --amber: rgb(241,177,70);
+    --pink: rgb(233, 69, 153);
+    --green: rgb(111,196,142);
+    --grey: rgb(73,74,75);
+    --indigo: rgb(70, 07, 180);
+
+    /*Additional darker colours*/  
+    --amber-shadow: rgba(241, 177,70, 0.7);
+    --blue-shadow: rgba(70,123,191, 0.7);
+    --pink-shadow: rgba(233, 69, 153, 0.7);
+    --green-shadow: rgba(111,196,142,0.7);
+    --grey-shadow: rgba(73,74,75,0.7);
+    --indigo-shadow: rgba(70, 07, 180, 0.7);
+    
+    /*Lighter rgbas */
+    --amber-lighter: rgba(241, 177,70, 0.4);
+    --blue-lighter: rgba(70,123,191, 0.4);
+    --pink-lighter: rgba(233, 69, 153, 0.4);
+    --green-lighter: rgba(111,196,142,0.4);
+    --grey-lighter: rgba(73,74,75,0.4);
+    --indigo-lighter: rgba(70,07,180,0.4);
+
+    /*Even lighter rgbas      */
+    --amber-lightest: rgba(241, 177,70, 0.2);
+    --blue-lightest: rgba(70,123,191, 0.2);
+    --pink-lightest: rgba(233, 69, 153, 0.2);
+    --green-lightest: rgba(111,196,142,0.2);
+    --grey-lightest: rgba(73,74,75,0.2);
+    --indigo-lightest: rgba(70,07,180, 0.2);
+
+    /*Possible others*/
+    --body-background: #e9e9e9;
+    --new-body-background: #f9f9f9;
+    --header-nav-background: #efefef;
+    --new-header-nav-background: #fffffe;
+}
+
+body {
+    padding: 0;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+}

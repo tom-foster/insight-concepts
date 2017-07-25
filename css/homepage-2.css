@@ -1,0 +1,59 @@
+div#top-half {
+    height: 50vh;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    background-color: var(--body-background);
+}
+
+div#top-half img {
+    display: flex;
+    min-width: 100px;
+    width: 300px;
+    align-self: flex-end;
+    flex-basis: auto;
+    flex-shrink: 1.5;
+}
+
+div#top-half header h1 {
+    color: var(--grey);
+    font-size: 3.5rem;
+}
+
+div#bottom-half {
+    height: 50vh;
+    margin: auto;
+    text-align: center;
+    padding: 0;
+    background-color: var(--new-body-background);
+    color: var(--amber);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+div#bottom-half div#bottom-half-left, div#bottom-half div#bottom-half-right,
+div#bottom-half div#bottom-half-middle {
+    flex-grow: 0.33;
+    align-self: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+div#bottom-half-left {
+     border-right: 1px solid var(--grey); 
+}
+
+div#bottom-half-right {
+     border-left: 1px solid var(--grey); 
+}
+
+div#bottom-half a {
+    font-size: 2.5rem;
+    color: var(--grey);
+}
