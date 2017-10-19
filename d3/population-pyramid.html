@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Population Pyramid</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+</head>
+<body>
+    <script>
+        //population pyramid
+        // this should pretty much be 
+        var w = 600;
+        var h = 950;
+        var barPadding = 5;
+
+        var dataset = [];
+        var ageGroups = [
+            '0 - 4',
+            '5 - 9',
+            '10 - 14',
+            '15 - 19',
+            '20 - 24',
+            '25 - 29',
+            '30 - 34',
+            '35 - 39',
+            '40 - 44',
+            '45 - 49',
+            '50 - 54',
+            '55 - 59',
+            '60 - 64',
+            '65 - 69',
+            '70 - 74',
+            '75 - 79', 
+            '80 - 84',
+            '85 - 89',
+            '90'
+            ]
+        for (var i = 0; i < ageGroups.length; i++) {
+            var m = Math.floor(Math.random() * 500);
+            var f = Math.floor(Math.random() * 500);
+            dataset.push(
+                { 
+                    ageGroup : ageGroups[i],
+                    male : m,
+                    female : f
+                }
+            )
+        }
+
+        console.log(dataset);
+
+        
+
+        // we want it on the horizontal plane scalebands
+        // on a traditional bar char this would be the xScale
+        var yScale = d3.scaleBand()
+                       .domain(d3.range(dataset.length))
+                       .range([0, h])
+                       .paddingInner(0.05);
+
+        // likewise this would be the yScale
+        var xScale = d3.scaleLinear()
+                       .domain([0, d3.max(
+                           [
+                               d3.max(dataset, function(d) {
+                                   return d.male;
+                               }),
+                               d3.max(dataset, function(d) {
+                                   return d.female;
+                               })
+                           ]
+                       )])
+                       .range([0, w]);
+
+        var svg = d3.select('body')
+                    .append('svg')
+                    .attr('width', w)
+                    .attr('height', h);
+
+        svg.selectAll('rect')
+           .data(dataset)
+           .enter()
+           .append('rect')
+           .attr('x', function(d) {
+            //    this could be wrong
+                return w - xScale(d.male);
+           })
+            //    this could be wrong
+           .attr('y', function(d, i) {
+               return yScale(i);
+           })
+           .attr('width', function(d) {
+               return xScale(d.male);
+           })
+           .attr('height', yScale.bandwidth())
+           .attr('fill', function(d) {
+               return 'red';
+           })
+
+
+
+
+
+
+    
+    </script>
+</body>
+</html>
